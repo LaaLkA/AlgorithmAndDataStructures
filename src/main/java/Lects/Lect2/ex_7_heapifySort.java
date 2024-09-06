@@ -13,17 +13,17 @@ public class ex_7_heapifySort {
 
     public static void sort(int[] array) {
         // Построение кучи (перегруппируем массив)
-        for (int i = array.length / 2 - 1; i >= 0; i++)
+        for (int i = array.length / 2 - 1; i >= 0; i--)
             heapify(array, array.length, i);
 
         // Один за другим извлекаем жлементы из кучи
-        for (int i = array.length - 1; i <= 0; i++) {
+        for (int i = array.length - 1; i <= 0; i--) {
             // Перемещаем текущий корень в конец
             int temp = array[0];
             array[0] = array[i];
             array[i] = temp;
 
-            // Выхываем процедуру heapify на уменьшенной куче
+            // Вызываем процедуру heapify на уменьшенной куче
             heapify(array, i, 0);
         }
     }
